@@ -32,3 +32,8 @@ etcd-1.kube1.okd.piensoluegoinstalo.com.    IN    A    192.168.100.5
 etcd-2.kube1.okd.piensoluegoinstalo.com.    IN    A    192.168.100.6
 console-openshift-console.apps.kube1.okd.piensoluegoinstalo.com.    IN     A     192.168.100.2
 oauth-openshift.apps.kube1.okd.piensoluegoinstalo.com.              IN     A     192.168.100.2
+; OpenShift internal cluster IPs - SRV records
+_etcd-server-ssl._tcp.kube1.okd.piensoluegoinstalo.com.    86400     IN    SRV     0    10    2380    etcd-0.kube1
+_etcd-server-ssl._tcp.kube1.okd.piensoluegoinstalo.com.    86400     IN    SRV     0    10    2380    etcd-1.kube1
+_etcd-server-ssl._tcp.kube1.okd.piensoluegoinstalo.com.    86400     IN    SRV     0    10    2380    etcd-2.kube1
+

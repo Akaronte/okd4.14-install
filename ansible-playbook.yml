@@ -1,0 +1,46 @@
+---
+- name: Check connectivity to host
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ping the host
+      ansible.builtin.ping:
+
+    - name: Perform a task as root
+      become: yes
+      become_user: root
+      ansible.builtin.command:
+        cmd: whoami
+
+    - name: Check status of rpm-ostreed service
+      become: yes
+      become_user: root
+      ansible.builtin.command:
+        cmd: systemctl status rpm-ostreed.service
+      ignore_errors: yes
+
+    - name: Mount /dev/disk/by-label/boot to /boot
+      become: yes
+      become_user: root
+      ansible.builtin.command:
+        cmd: mount /dev/disk/by-label/boot /boot
+      ignore_errors: yes
+
+    - name: Restart rpm-ostreed service
+      become: yes
+      become_user: root
+      ansible.builtin.systemd:
+        name: rpm-ostreed
+        state: restarted
+      ignore_errors: yes
+
+    - name: Check status of rpm-ostreed service
+      become: yes
+      become_user: root
+      ansible.builtin.command:
+        cmd: systemctl status rpm-ostreed.service
+      ignore_errors: yes
+
+  vars:
+    ansible_user: core
+    ansible_ssh_private_key_file: /root/.ssh/id_rsa

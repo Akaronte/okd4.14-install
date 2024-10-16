@@ -1,0 +1,14 @@
+[masters]
+master1 ansible_host=192.168.200.4 ansible_user=core ansible_ssh_private_key_file=/root/.ssh/id_rsa
+master2 ansible_host=192.168.200.5 ansible_user=core ansible_ssh_private_key_file=/root/.ssh/id_rsa
+master3 ansible_host=192.168.200.6 ansible_user=core ansible_ssh_private_key_file=/root/.ssh/id_rsa
+
+[workers]
+worker1 ansible_host=192.168.200.7 ansible_user=core ansible_ssh_private_key_file=/root/.ssh/id_rsa
+worker2 ansible_host=192.168.200.8 ansible_user=core ansible_ssh_private_key_file=/root/.ssh/id_rsa
+worker3 ansible_host=192.168.200.9 ansible_user=core ansible_ssh_private_key_file=/root/.ssh/id_rsa
+worker4 ansible_host=192.168.200.10 ansible_user=core ansible_ssh_private_key_file=/root/.ssh/id_rsa
+
+[all:vars]
+ansible_user=core
+ansible_ssh_private_key_file=/root/.ssh/id_rsa
