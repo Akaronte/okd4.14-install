@@ -1,5 +1,8 @@
 # INSTALL OKD CLUSTER
 
+dig @127.0.0.1 kube1.okd.piensoluegoinstalo.com
+
+
 Download pull secret from
 
 https://console.redhat.com/openshift/install/pull-secret
